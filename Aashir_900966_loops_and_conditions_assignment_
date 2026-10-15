@@ -1,0 +1,4835 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "c001",
+   "metadata": {},
+   "source": [
+    "# Python Assignment: Conditions and Loops\n",
+    "\n",
+    "**Total questions:** 50 (all real-world scenarios)\n",
+    "\n",
+    "**Topics:** Conditions, Nested Conditions, Logical Conditions, Truthy/Falsy, Loops, Loops with Conditions\n",
+    "\n",
+    "### Rules\n",
+    "* Write your solution in the code cell below each question.\n",
+    "* Use `input()` where the question asks for user input.\n",
+    "* Do **not** use `break`, `continue` or nested loops in this assignment.\n",
+    "* Test every program with at least two different inputs."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c002",
+   "metadata": {},
+   "source": [
+    "# Section A: Conditions (if / elif / else)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c003",
+   "metadata": {},
+   "source": [
+    "## 🌦️ 1. Season Finder for a Travel App\n",
+    "\n",
+    "### Goal:\n",
+    "    Tell travellers which season it is for a given month.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask the user for a month number (1-12).\n",
+    "    \n",
+    "    December, January, February → \"Winter\".\n",
+    "    \n",
+    "    March, April, May → \"Spring\".\n",
+    "    \n",
+    "    June, July, August → \"Summer\".\n",
+    "    \n",
+    "    September, October, November → \"Autumn\".\n",
+    "    \n",
+    "    Any other number → \"Invalid month\".\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter month number: 7\n",
+    "    Summer"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "c004",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter month number:  3\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Spring\n"
+     ]
+    }
+   ],
+   "source": [
+    "month = int(input(\"Enter month number: \"))\n",
+    "if month == 12 or month == 1 or month == 2:\n",
+    "    print(\"Winter\")\n",
+    "elif month >= 3 and month <= 5:\n",
+    "    print(\"Spring\")\n",
+    "elif month >= 6 and month <= 8:\n",
+    "    print(\"Summer\")\n",
+    "elif month >= 9 and month <= 11:\n",
+    "    print(\"Autumn\")\n",
+    "else:\n",
+    "    print(\"Invalid month\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "9ddaf204-08f0-4c0e-b507-6e12a65cef7b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter month number:  9\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Autumn\n"
+     ]
+    }
+   ],
+   "source": [
+    "month = int(input(\"Enter month number: \"))\n",
+    "if month == 12 or month == 1 or month == 2:\n",
+    "    print(\"Winter\")\n",
+    "elif month >= 3 and month <= 5:\n",
+    "    print(\"Spring\")\n",
+    "elif month >= 6 and month <= 8:\n",
+    "    print(\"Summer\")\n",
+    "elif month >= 9 and month <= 11:\n",
+    "    print(\"Autumn\")\n",
+    "else:\n",
+    "\n",
+    "    print(\"Invalid month\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c005",
+   "metadata": {},
+   "source": [
+    "## ⚖️ 2. BMI Health Checker\n",
+    "\n",
+    "### Goal:\n",
+    "    Help a fitness app tell users which weight category they belong to.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for weight in kg and height in metres.\n",
+    "    \n",
+    "    Calculate BMI = weight / (height * height).\n",
+    "    \n",
+    "    BMI below 18.5 → \"Underweight\".\n",
+    "    \n",
+    "    18.5 to 24.9 → \"Normal\".\n",
+    "    \n",
+    "    25 to 29.9 → \"Overweight\".\n",
+    "    \n",
+    "    30 or more → \"Obese\".\n",
+    "    \n",
+    "    Print the BMI rounded to 2 decimals.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter weight: 70\n",
+    "    Enter height: 1.75\n",
+    "    BMI = 22.86 → Normal"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "id": "c006",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter weight:  55\n",
+      "Enter height:  1.60\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "BMI = 21.48\n",
+      "Normal\n"
+     ]
+    }
+   ],
+   "source": [
+    "weight = float(input(\"Enter weight: \"))\n",
+    "height = float(input(\"Enter height: \"))\n",
+    "bmi = weight / (height * height)\n",
+    "print(f\"BMI = {bmi:.2f}\")\n",
+    "if bmi < 18.5:\n",
+    "    print(\"Underweight\")\n",
+    "elif 18.5 <= bmi <= 24.9:\n",
+    "    print(\"Normal\")\n",
+    "elif 25 <= bmi <= 29.9:\n",
+    "    print(\"Overweight\")\n",
+    "else:\n",
+    "    print(\"Obese\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "75c9e192-f088-486b-b74d-86d28b4b7d3c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter weight:  95\n",
+      "Enter height:  1.75\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "BMI = 31.02\n",
+      "Obese\n"
+     ]
+    }
+   ],
+   "source": [
+    "weight = float(input(\"Enter weight: \"))\n",
+    "height = float(input(\"Enter height: \"))\n",
+    "bmi = weight / (height * height)\n",
+    "print(f\"BMI = {bmi:.2f}\")\n",
+    "if bmi < 18.5:\n",
+    "    print(\"Underweight\")\n",
+    "elif 18.5 <= bmi <= 24.9:\n",
+    "    print(\"Normal\")\n",
+    "elif 25 <= bmi <= 29.9:\n",
+    "    print(\"Overweight\")\n",
+    "else:\n",
+    "    print(\"Obese\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c007",
+   "metadata": {},
+   "source": [
+    "## 👋 3. Smart Greeting App\n",
+    "\n",
+    "### Goal:\n",
+    "    Make a phone assistant greet the user based on the time of day.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for the current hour (0-23).\n",
+    "    \n",
+    "    0 to 11 → \"Good morning\".\n",
+    "    \n",
+    "    12 to 16 → \"Good afternoon\".\n",
+    "    \n",
+    "    17 to 20 → \"Good evening\".\n",
+    "    \n",
+    "    21 to 23 → \"Good night\".\n",
+    "    \n",
+    "    Anything else → \"Invalid hour\".\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter hour: 14\n",
+    "    Good afternoon"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "id": "c008",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter hour:  18\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Good evening\n"
+     ]
+    }
+   ],
+   "source": [
+    "hour = int(input(\"Enter hour: \"))\n",
+    "if 0 <= hour <= 11:\n",
+    "    print(\"Good morning\")\n",
+    "elif 12 <= hour <= 16:\n",
+    "    print(\"Good afternoon\")\n",
+    "elif 17 <= hour <= 20:\n",
+    "    print(\"Good evening\")\n",
+    "elif 21 <= hour <= 23:\n",
+    "    print(\"Good night\")\n",
+    "else:\n",
+    "    print(\"Invalid hour\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "c7f507cc-71d4-4635-a1b7-7c6604b6366f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter hour:  22\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Good night\n"
+     ]
+    }
+   ],
+   "source": [
+    "hour = int(input(\"Enter hour: \"))\n",
+    "if 0 <= hour <= 11:\n",
+    "    print(\"Good morning\")\n",
+    "elif 12 <= hour <= 16:\n",
+    "    print(\"Good afternoon\")\n",
+    "elif 17 <= hour <= 20:\n",
+    "    print(\"Good evening\")\n",
+    "elif 21 <= hour <= 23:\n",
+    "    print(\"Good night\")\n",
+    "else:\n",
+    "    print(\"Invalid hour\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c009",
+   "metadata": {},
+   "source": [
+    "## 📦 4. Courier Shipping Cost\n",
+    "\n",
+    "### Goal:\n",
+    "    Calculate the delivery charge of a parcel based on its weight.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for the parcel weight in kg.\n",
+    "    \n",
+    "    Up to 1 kg → Rs 150.\n",
+    "    \n",
+    "    Above 1 kg and up to 5 kg → Rs 300.\n",
+    "    \n",
+    "    Above 5 kg and up to 10 kg → Rs 500.\n",
+    "    \n",
+    "    Above 10 kg → Rs 800.\n",
+    "    \n",
+    "    Print the shipping cost.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter weight: 3.5\n",
+    "    Shipping cost = Rs 300"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "id": "c010",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter weight:  0.5\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Shipping cost = Rs 150\n"
+     ]
+    }
+   ],
+   "source": [
+    "weight = float(input(\"Enter weight: \"))\n",
+    "if weight <= 1:\n",
+    "    cost = 150\n",
+    "elif weight <= 5:\n",
+    "    cost = 300\n",
+    "elif weight <= 10:\n",
+    "    cost = 500\n",
+    "else:\n",
+    "    cost = 800\n",
+    "print(f\"Shipping cost = Rs {cost}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "id": "3170f757-368f-4083-a05d-402f70464a14",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter weight:  7.2\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Shipping cost = Rs 500\n"
+     ]
+    }
+   ],
+   "source": [
+    "weight = float(input(\"Enter weight: \"))\n",
+    "if weight <= 1:\n",
+    "    cost = 150\n",
+    "elif weight <= 5:\n",
+    "    cost = 300\n",
+    "elif weight <= 10:\n",
+    "    cost = 500\n",
+    "else:\n",
+    "    cost = 800\n",
+    "print(f\"Shipping cost = Rs {cost}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c011",
+   "metadata": {},
+   "source": [
+    "## 📚 5. Library Fine Calculator\n",
+    "\n",
+    "### Goal:\n",
+    "    Calculate the fine a student must pay for returning a book late.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for the number of days the book is late.\n",
+    "    \n",
+    "    0 days or less → no fine.\n",
+    "    \n",
+    "    1 to 7 days → Rs 5 per day.\n",
+    "    \n",
+    "    8 to 14 days → Rs 10 per day.\n",
+    "    \n",
+    "    More than 14 days → Rs 20 per day.\n",
+    "    \n",
+    "    Print the total fine.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter days late: 10\n",
+    "    Fine = Rs 100"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "id": "c012",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter days late:  4\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Fine = Rs 20\n"
+     ]
+    }
+   ],
+   "source": [
+    "days = int(input(\"Enter days late: \"))\n",
+    "if days <= 0:\n",
+    "    fine = 0\n",
+    "elif days <= 7:\n",
+    "    fine = days * 5\n",
+    "elif days <= 14:\n",
+    "    fine = days * 10\n",
+    "else:\n",
+    "    fine = days * 20\n",
+    "print(f\"Fine = Rs {fine}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "id": "44dfe345-20a4-450b-b783-a7bf456610ed",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter days late:  15\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Fine = Rs 300\n"
+     ]
+    }
+   ],
+   "source": [
+    "days = int(input(\"Enter days late: \"))\n",
+    "if days <= 0:\n",
+    "    fine = 0\n",
+    "elif days <= 7:\n",
+    "    fine = days * 5\n",
+    "elif days <= 14:\n",
+    "    fine = days * 10\n",
+    "else:\n",
+    "    fine = days * 20\n",
+    "print(f\"Fine = Rs {fine}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c013",
+   "metadata": {},
+   "source": [
+    "## 📅 6. Calendar Day Finder\n",
+    "\n",
+    "### Goal:\n",
+    "    Convert a day number into a day name for a calendar app.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for a number from 1 to 7 (1 = Monday ... 7 = Sunday).\n",
+    "    \n",
+    "    Print the matching day name using if / elif / else.\n",
+    "    \n",
+    "    Any other number → \"Invalid day number\".\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter number: 3\n",
+    "    Wednesday"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "id": "c014",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter number:  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Monday\n"
+     ]
+    }
+   ],
+   "source": [
+    "day_num = int(input(\"Enter number: \"))\n",
+    "if day_num == 1:\n",
+    "    print(\"Monday\")\n",
+    "elif day_num == 2:\n",
+    "    print(\"Tuesday\")\n",
+    "elif day_num == 3:\n",
+    "    print(\"Wednesday\")\n",
+    "elif day_num == 4:\n",
+    "    print(\"Thursday\")\n",
+    "elif day_num == 5:\n",
+    "    print(\"Friday\")\n",
+    "elif day_num == 6:\n",
+    "    print(\"Saturday\")\n",
+    "elif day_num == 7:\n",
+    "    print(\"Sunday\")\n",
+    "else:\n",
+    "    print(\"Invalid day number\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "id": "373d4652-6971-448d-b3f3-6bba1cb18dfb",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter number:  5\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Friday\n"
+     ]
+    }
+   ],
+   "source": [
+    "day_num = int(input(\"Enter number: \"))\n",
+    "if day_num == 1:\n",
+    "    print(\"Monday\")\n",
+    "elif day_num == 2:\n",
+    "    print(\"Tuesday\")\n",
+    "elif day_num == 3:\n",
+    "    print(\"Wednesday\")\n",
+    "elif day_num == 4:\n",
+    "    print(\"Thursday\")\n",
+    "elif day_num == 5:\n",
+    "    print(\"Friday\")\n",
+    "elif day_num == 6:\n",
+    "    print(\"Saturday\")\n",
+    "elif day_num == 7:\n",
+    "    print(\"Sunday\")\n",
+    "else:\n",
+    "    print(\"Invalid day number\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c015",
+   "metadata": {},
+   "source": [
+    "## ☕ 7. Coffee Shop Price Menu\n",
+    "\n",
+    "### Goal:\n",
+    "    Show the price of a cup of coffee when the customer chooses a size.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for the size: small, medium or large.\n",
+    "    \n",
+    "    small → Rs 150, medium → Rs 220, large → Rs 300.\n",
+    "    \n",
+    "    If the size is not on the menu → \"Size not available\".\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter size: medium\n",
+    "    Price = Rs 220"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "id": "c016",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter size:  large\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Price = Rs 300\n"
+     ]
+    }
+   ],
+   "source": [
+    "size = input(\"Enter size: \").lower()\n",
+    "if size == \"small\":\n",
+    "    print(\"Price = Rs 150\")\n",
+    "elif size == \"medium\":\n",
+    "    print(\"Price = Rs 220\")\n",
+    "elif size == \"large\":\n",
+    "    print(\"Price = Rs 300\")\n",
+    "else:\n",
+    "\n",
+    "    print(\"Size not available\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "id": "6fa61ebe-aa8e-44df-813b-716ad6e8ee9d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter size:  small\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Price = Rs 150\n"
+     ]
+    }
+   ],
+   "source": [
+    "size = input(\"Enter size: \").lower()\n",
+    "if size == \"small\":\n",
+    "    print(\"Price = Rs 150\")\n",
+    "elif size == \"medium\":\n",
+    "    print(\"Price = Rs 220\")\n",
+    "elif size == \"large\":\n",
+    "    print(\"Price = Rs 300\")\n",
+    "else:\n",
+    "    print(\"Size not available\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c017",
+   "metadata": {},
+   "source": [
+    "## 🌡️ 8. Temperature Unit Converter\n",
+    "\n",
+    "### Goal:\n",
+    "    Build a small converter for a weather app.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Show a menu: 1 = Celsius to Fahrenheit, 2 = Fahrenheit to Celsius.\n",
+    "    \n",
+    "    Ask for the choice and then the temperature.\n",
+    "    \n",
+    "    Choice 1 → F = C * 9/5 + 32.\n",
+    "    \n",
+    "    Choice 2 → C = (F - 32) * 5/9.\n",
+    "    \n",
+    "    Any other choice → \"Invalid choice\".\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter choice: 1\n",
+    "    Enter temperature: 100\n",
+    "    212.0 F"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "id": "c018",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter choice:  1\n",
+      "Enter temperature:  25\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "77.0 F\n"
+     ]
+    }
+   ],
+   "source": [
+    "choice = int(input(\"Enter choice: \"))\n",
+    "temp = float(input(\"Enter temperature: \"))\n",
+    "if choice == 1:\n",
+    "    f = (temp * 9/5) + 32\n",
+    "    print(f\"{f} F\")\n",
+    "elif choice == 2:\n",
+    "    c = (temp - 32) * 5/9\n",
+    "    print(f\"{c} C\")\n",
+    "else:\n",
+    "    print(\"Invalid choice\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 43,
+   "id": "1b25e0c0-32f7-4a08-ba41-6e16b16a68ca",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter choice:  2\n",
+      "Enter temperature:  86\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "30.0 C\n"
+     ]
+    }
+   ],
+   "source": [
+    "choice = int(input(\"Enter choice: \"))\n",
+    "temp = float(input(\"Enter temperature: \"))\n",
+    "if choice == 1:\n",
+    "    f = (temp * 9/5) + 32\n",
+    "    print(f\"{f} F\")\n",
+    "elif choice == 2:\n",
+    "    c = (temp - 32) * 5/9\n",
+    "    print(f\"{c} C\")\n",
+    "else:\n",
+    "    print(\"Invalid choice\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c019",
+   "metadata": {},
+   "source": [
+    "# Section B: Nested Conditions"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c020",
+   "metadata": {},
+   "source": [
+    "## 🛒 9. Cheapest Price Finder\n",
+    "\n",
+    "### Goal:\n",
+    "    Help a shopper find the lowest price of the same product from three shops.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for the price in Shop 1, Shop 2 and Shop 3.\n",
+    "    \n",
+    "    Use nested if statements to find the smallest price (do not use min()).\n",
+    "    \n",
+    "    Print the lowest price and the shop number.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter prices: 1450, 1200, 1380\n",
+    "    Lowest price: 1200 (Shop 2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 44,
+   "id": "c021",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter price for Shop 1:  900\n",
+      "Enter price for Shop 2:  1100\n",
+      "Enter price for Shop 3:  950\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Lowest price: 900 (Shop 1)\n"
+     ]
+    }
+   ],
+   "source": [
+    "p1 = int(input(\"Enter price for Shop 1: \"))\n",
+    "p2 = int(input(\"Enter price for Shop 2: \"))\n",
+    "p3 = int(input(\"Enter price for Shop 3: \"))\n",
+    "if p1 <= p2:\n",
+    "    if p1 <= p3:\n",
+    "        lowest = p1\n",
+    "        shop = 1\n",
+    "    else:\n",
+    "        lowest = p3\n",
+    "        shop = 3\n",
+    "else:\n",
+    "    if p2 <= p3:\n",
+    "        lowest = p2\n",
+    "        shop = 2\n",
+    "    else:\n",
+    "        lowest = p3\n",
+    "        shop = 3\n",
+    "print(f\"Lowest price: {lowest} (Shop {shop})\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "id": "e7c86483-fb9c-4cee-a201-c50e0518c071",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter price for Shop 1:  2000\n",
+      "Enter price for Shop 2:  1850\n",
+      "Enter price for Shop 3:  1900\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Lowest price: 1850 (Shop 2)\n"
+     ]
+    }
+   ],
+   "source": [
+    "p1 = int(input(\"Enter price for Shop 1: \"))\n",
+    "p2 = int(input(\"Enter price for Shop 2: \"))\n",
+    "p3 = int(input(\"Enter price for Shop 3: \"))\n",
+    "if p1 <= p2:\n",
+    "    if p1 <= p3:\n",
+    "        lowest = p1\n",
+    "        shop = 1\n",
+    "    else:\n",
+    "        lowest = p3\n",
+    "        shop = 3\n",
+    "else:\n",
+    "    if p2 <= p3:\n",
+    "        lowest = p2\n",
+    "        shop = 2\n",
+    "    else:\n",
+    "        lowest = p3\n",
+    "        shop = 3\n",
+    "print(f\"Lowest price: {lowest} (Shop {shop})\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c022",
+   "metadata": {},
+   "source": [
+    "## 🅿️ 10. Parking Fee System\n",
+    "\n",
+    "### Goal:\n",
+    "    Calculate the parking fee of a mall for different vehicles.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for the vehicle type (car or bike).\n",
+    "    \n",
+    "    Then ask for the number of hours parked.\n",
+    "    \n",
+    "    Car: Rs 100 for up to 2 hours, plus Rs 50 for each extra hour.\n",
+    "    \n",
+    "    Bike: Rs 50 for up to 2 hours, plus Rs 20 for each extra hour.\n",
+    "    \n",
+    "    Any other vehicle → \"Vehicle not allowed\".\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter vehicle: car\n",
+    "    Enter hours: 5\n",
+    "    Parking fee = Rs 250"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 46,
+   "id": "c023",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter vehicle:  bike\n",
+      "Enter hours:  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Parking fee = Rs 50\n"
+     ]
+    }
+   ],
+   "source": [
+    "vehicle = input(\"Enter vehicle: \").lower()\n",
+    "hours = int(input(\"Enter hours: \"))\n",
+    "if vehicle == \"car\":\n",
+    "    if hours <= 2:\n",
+    "        fee = 100\n",
+    "    else:\n",
+    "        fee = 100 + (hours - 2) * 50\n",
+    "    print(f\"Parking fee = Rs {fee}\")\n",
+    "elif vehicle == \"bike\":\n",
+    "    if hours <= 2:\n",
+    "        fee = 50\n",
+    "    else:\n",
+    "        fee = 50 + (hours - 2) * 20\n",
+    "    print(f\"Parking fee = Rs {fee}\")\n",
+    "else:\n",
+    "    print(\"Vehicle not allowed\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 47,
+   "id": "c4a86dbe-6100-47b4-90e8-898b0886bbe2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter vehicle:  car\n",
+      "Enter hours:  3\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Parking fee = Rs 150\n"
+     ]
+    }
+   ],
+   "source": [
+    "vehicle = input(\"Enter vehicle: \").lower()\n",
+    "hours = int(input(\"Enter hours: \"))\n",
+    "if vehicle == \"car\":\n",
+    "    if hours <= 2:\n",
+    "        fee = 100\n",
+    "    else:\n",
+    "        fee = 100 + (hours - 2) * 50\n",
+    "    print(f\"Parking fee = Rs {fee}\")\n",
+    "elif vehicle == \"bike\":\n",
+    "    if hours <= 2:\n",
+    "        fee = 50\n",
+    "    else:\n",
+    "        fee = 50 + (hours - 2) * 20\n",
+    "    print(f\"Parking fee = Rs {fee}\")\n",
+    "else:\n",
+    "    print(\"Vehicle not allowed\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c024",
+   "metadata": {},
+   "source": [
+    "## 🚕 11. Taxi Fare Calculator\n",
+    "\n",
+    "### Goal:\n",
+    "    Calculate the fare of a ride-booking app.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for the ride type (economy or luxury).\n",
+    "    \n",
+    "    Ask for the distance in km.\n",
+    "    \n",
+    "    Economy: Rs 200 for up to 5 km, then Rs 30 per extra km.\n",
+    "    \n",
+    "    Luxury: Rs 400 for up to 5 km, then Rs 60 per extra km.\n",
+    "    \n",
+    "    Print the final fare.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter ride type: economy\n",
+    "    Enter distance: 8\n",
+    "    Fare = Rs 290"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "id": "c025",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter ride type:  economy\n",
+      "Enter distance:  3\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Fare = Rs 200\n"
+     ]
+    }
+   ],
+   "source": [
+    "ride_type = input(\"Enter ride type: \").strip().lower()\n",
+    "distance = float(input(\"Enter distance: \"))\n",
+    "\n",
+    "if ride_type == \"economy\":\n",
+    "    if distance <= 5:\n",
+    "        fare = 200\n",
+    "    else:\n",
+    "        fare = 200 + (distance - 5) * 30\n",
+    "elif ride_type == \"luxury\":\n",
+    "    if distance <= 5:\n",
+    "        fare = 400\n",
+    "    else:\n",
+    "        fare = 400 + (distance - 5) * 60\n",
+    "else:\n",
+    "    fare = 0\n",
+    "    print(\"Invalid ride type\")\n",
+    "\n",
+    "if ride_type in [\"economy\", \"luxury\"]:\n",
+    "    print(f\"Fare = Rs {int(fare) if fare.is_integer() else fare}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 53,
+   "id": "5fa05e18-d329-4c01-a3e7-49ca8d2e6739",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter ride type:  luxury\n",
+      "Enter distance:  4\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Fare = Rs 200\n"
+     ]
+    }
+   ],
+   "source": [
+    "ide_type = input(\"Enter ride type: \").strip().lower()\n",
+    "distance = float(input(\"Enter distance: \"))\n",
+    "\n",
+    "if ride_type == \"economy\":\n",
+    "    if distance <= 5:\n",
+    "        fare = 200\n",
+    "    else:\n",
+    "        fare = 200 + (distance - 5) * 30\n",
+    "elif ride_type == \"luxury\":\n",
+    "    if distance <= 5:\n",
+    "        fare = 400\n",
+    "    else:\n",
+    "        fare = 400 + (distance - 5) * 60\n",
+    "else:\n",
+    "    fare = 0\n",
+    "    print(\"Invalid ride type\")\n",
+    "\n",
+    "if ride_type in [\"economy\", \"luxury\"]:\n",
+    "    print(f\"Fare = Rs {int(fare) if fare.is_integer() else fare}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c026",
+   "metadata": {},
+   "source": [
+    "## 🎓 12. Scholarship Decision\n",
+    "\n",
+    "### Goal:\n",
+    "    Help a university decide which scholarship a student receives.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for the percentage and the yearly family income.\n",
+    "    \n",
+    "    Percentage 85 or above: income below 30000 → \"Full scholarship\", otherwise \"Half scholarship\".\n",
+    "    \n",
+    "    Percentage 70 to 84: income below 30000 → \"Quarter scholarship\", otherwise \"No scholarship\".\n",
+    "    \n",
+    "    Below 70 → \"Not eligible\".\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter percentage: 90\n",
+    "    Enter income: 25000\n",
+    "    Full scholarship"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 54,
+   "id": "c027",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter percentage:  80\n",
+      "Enter income:  25000\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Quarter scholarship\n"
+     ]
+    }
+   ],
+   "source": [
+    "percentage = float(input(\"Enter percentage: \"))\n",
+    "income = float(input(\"Enter income: \"))\n",
+    "\n",
+    "if percentage >= 85:\n",
+    "    if income < 30000:\n",
+    "        print(\"Full scholarship\")\n",
+    "    else:\n",
+    "        print(\"Half scholarship\")\n",
+    "elif percentage >= 70:\n",
+    "    if income < 30000:\n",
+    "        print(\"Quarter scholarship\")\n",
+    "    else:\n",
+    "        print(\"No scholarship\")\n",
+    "else:\n",
+    "    print(\"Not eligible\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 55,
+   "id": "ed896567-7c02-44c1-b859-486e755b1ce4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter percentage:  72\n",
+      "Enter income:  35000\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "No scholarship\n"
+     ]
+    }
+   ],
+   "source": [
+    "percentage = float(input(\"Enter percentage: \"))\n",
+    "income = float(input(\"Enter income: \"))\n",
+    "\n",
+    "if percentage >= 85:\n",
+    "    if income < 30000:\n",
+    "        print(\"Full scholarship\")\n",
+    "    else:\n",
+    "        print(\"Half scholarship\")\n",
+    "elif percentage >= 70:\n",
+    "    if income < 30000:\n",
+    "        print(\"Quarter scholarship\")\n",
+    "    else:\n",
+    "        print(\"No scholarship\")\n",
+    "else:\n",
+    "    print(\"Not eligible\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c028",
+   "metadata": {},
+   "source": [
+    "## ✈️ 13. Flight Upgrade Desk\n",
+    "\n",
+    "### Goal:\n",
+    "    Decide what an airline counter offers a passenger.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for the ticket class (economy or business).\n",
+    "    \n",
+    "    Economy: ask for frequent-flyer miles. 5000 or more → \"Free upgrade to business\", otherwise \"Upgrade available for Rs 20000\".\n",
+    "    \n",
+    "    Business: ask \"Need lounge access? (yes/no)\". yes → \"Lounge pass issued\", no → \"Enjoy your flight\".\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter class: economy\n",
+    "    Enter miles: 6000\n",
+    "    Free upgrade to business"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 56,
+   "id": "c029",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter class:  economy\n",
+      "Enter miles:  4500\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Upgrade available for Rs 20000\n"
+     ]
+    }
+   ],
+   "source": [
+    "class_type = input(\"Enter class: \").strip().lower()\n",
+    "\n",
+    "if class_type == \"economy\":\n",
+    "    miles = int(input(\"Enter miles: \"))\n",
+    "    if miles >= 5000:\n",
+    "        print(\"Free upgrade to business\")\n",
+    "    else:\n",
+    "        print(\"Upgrade available for Rs 20000\")\n",
+    "elif class_type == \"business\":\n",
+    "    lounge = input(\"Need lounge access? (yes/no): \").strip().lower()\n",
+    "    if lounge == \"yes\":\n",
+    "        print(\"Lounge pass issued\")\n",
+    "    else:\n",
+    "        print(\"Enjoy your flight\")\n",
+    "else:\n",
+    "    print(\"Invalid class\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 57,
+   "id": "13bb8a31-08c5-470a-9864-a47607518dd9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter class:  business\n",
+      "Need lounge access? (yes/no):  yes\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Lounge pass issued\n"
+     ]
+    }
+   ],
+   "source": [
+    "class_type = input(\"Enter class: \").strip().lower()\n",
+    "\n",
+    "if class_type == \"economy\":\n",
+    "    miles = int(input(\"Enter miles: \"))\n",
+    "    if miles >= 5000:\n",
+    "        print(\"Free upgrade to business\")\n",
+    "    else:\n",
+    "        print(\"Upgrade available for Rs 20000\")\n",
+    "elif class_type == \"business\":\n",
+    "    lounge = input(\"Need lounge access? (yes/no): \").strip().lower()\n",
+    "    if lounge == \"yes\":\n",
+    "        print(\"Lounge pass issued\")\n",
+    "    else:\n",
+    "        print(\"Enjoy your flight\")\n",
+    "else:\n",
+    "    print(\"Invalid class\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c030",
+   "metadata": {},
+   "source": [
+    "## 🏋️ 14. Gym Membership Fee\n",
+    "\n",
+    "### Goal:\n",
+    "    Calculate the fee a gym charges according to the plan chosen.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for the plan (monthly or yearly).\n",
+    "    \n",
+    "    Monthly: Rs 3000, but students (ask yes/no) pay Rs 2500.\n",
+    "    \n",
+    "    Yearly: Rs 30000, and if the member pays in full now (ask yes/no) they get a 10% discount.\n",
+    "    \n",
+    "    Print the final fee.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter plan: yearly\n",
+    "    Pay in full now? yes\n",
+    "    Fee = 27000.0"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 59,
+   "id": "c031",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter plan:  monthly\n",
+      "Are you a student? (yes/no):  no\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Fee = 3000.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "plan = input(\"Enter plan: \").strip().lower()\n",
+    "\n",
+    "if plan == \"monthly\":\n",
+    "    is_student = input(\"Are you a student? (yes/no): \").strip().lower()\n",
+    "    if is_student == \"yes\":\n",
+    "        fee = 2500\n",
+    "    else:\n",
+    "        fee = 3000\n",
+    "    print(f\"Fee = {float(fee)}\")\n",
+    "elif plan == \"yearly\":\n",
+    "    pay_full = input(\"Pay in full now? (yes/no): \").strip().lower()\n",
+    "    if pay_full == \"yes\":\n",
+    "        fee = 30000 * 0.9\n",
+    "    else:\n",
+    "        fee = 30000\n",
+    "    print(f\"Fee = {fee}\")\n",
+    "else:\n",
+    "    print(\"Invalid plan\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 60,
+   "id": "dbf53512-d5e2-4efc-aa75-26dec544d4d3",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter plan:  yearly\n",
+      "Pay in full now? (yes/no):  yes\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Fee = 27000.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "plan = input(\"Enter plan: \").strip().lower()\n",
+    "\n",
+    "if plan == \"monthly\":\n",
+    "    is_student = input(\"Are you a student? (yes/no): \").strip().lower()\n",
+    "    if is_student == \"yes\":\n",
+    "        fee = 2500\n",
+    "    else:\n",
+    "        fee = 3000\n",
+    "    print(f\"Fee = {float(fee)}\")\n",
+    "elif plan == \"yearly\":\n",
+    "    pay_full = input(\"Pay in full now? (yes/no): \").strip().lower()\n",
+    "    if pay_full == \"yes\":\n",
+    "        fee = 30000 * 0.9\n",
+    "    else:\n",
+    "        fee = 30000\n",
+    "    print(f\"Fee = {fee}\")\n",
+    "else:\n",
+    "    print(\"Invalid plan\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c032",
+   "metadata": {},
+   "source": [
+    "## 💧 15. Water Tank Controller\n",
+    "\n",
+    "### Goal:\n",
+    "    Control the water pump of a house automatically.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for the pump status (on/off) and the water level percentage.\n",
+    "    \n",
+    "    Pump on: level 100 or more → \"Tank full, turn off pump\", otherwise \"Filling\".\n",
+    "    \n",
+    "    Pump off: level below 20 → \"Turn on the pump\", otherwise \"Level is fine\".\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter pump status: off\n",
+    "    Enter water level: 15\n",
+    "    Turn on the pump"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 61,
+   "id": "c033",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter pump status:  on\n",
+      "Enter water level:  50\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Filling\n"
+     ]
+    }
+   ],
+   "source": [
+    "pump_status = input(\"Enter pump status: \").strip().lower()\n",
+    "level = float(input(\"Enter water level: \"))\n",
+    "\n",
+    "if pump_status == \"on\":\n",
+    "    if level >= 100:\n",
+    "        print(\"Tank full, turn off pump\")\n",
+    "    else:\n",
+    "        print(\"Filling\")\n",
+    "elif pump_status == \"off\":\n",
+    "    if level < 20:\n",
+    "        print(\"Turn on the pump\")\n",
+    "    else:\n",
+    "        print(\"Level is fine\")\n",
+    "else:\n",
+    "    print(\"Invalid pump status\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 62,
+   "id": "5ca61294-9aae-407d-ad2f-932808157b3c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter pump status:  off\n",
+      "Enter water level:  10\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Turn on the pump\n"
+     ]
+    }
+   ],
+   "source": [
+    "pump_status = input(\"Enter pump status: \").strip().lower()\n",
+    "level = float(input(\"Enter water level: \"))\n",
+    "\n",
+    "if pump_status == \"on\":\n",
+    "    if level >= 100:\n",
+    "        print(\"Tank full, turn off pump\")\n",
+    "    else:\n",
+    "        print(\"Filling\")\n",
+    "elif pump_status == \"off\":\n",
+    "    if level < 20:\n",
+    "        print(\"Turn on the pump\")\n",
+    "    else:\n",
+    "        print(\"Level is fine\")\n",
+    "else:\n",
+    "    print(\"Invalid pump status\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c034",
+   "metadata": {},
+   "source": [
+    "## 🍕 16. Pizza Order Price\n",
+    "\n",
+    "### Goal:\n",
+    "    Calculate the price of a pizza order.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for the pizza size (small or large).\n",
+    "    \n",
+    "    Then ask \"Extra cheese? (yes/no)\".\n",
+    "    \n",
+    "    Small: Rs 700 (Rs 900 with extra cheese).\n",
+    "    \n",
+    "    Large: Rs 1500 (Rs 1800 with extra cheese).\n",
+    "    \n",
+    "    Print the price.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter size: large\n",
+    "    Extra cheese? yes\n",
+    "    Price = Rs 1800"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 63,
+   "id": "c035",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter size:  small\n",
+      "Extra cheese? (yes/no):  yes\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Price = Rs 900\n"
+     ]
+    }
+   ],
+   "source": [
+    "ize = input(\"Enter size: \").strip().lower()\n",
+    "extra_cheese = input(\"Extra cheese? (yes/no): \").strip().lower()\n",
+    "\n",
+    "if size == \"small\":\n",
+    "    if extra_cheese == \"yes\":\n",
+    "        price = 900\n",
+    "    else:\n",
+    "        price = 700\n",
+    "elif size == \"large\":\n",
+    "    if extra_cheese == \"yes\":\n",
+    "        price = 1800\n",
+    "    else:\n",
+    "        price = 1500\n",
+    "else:\n",
+    "    price = 0\n",
+    "    print(\"Invalid size\")\n",
+    "\n",
+    "if size in [\"small\", \"large\"]:\n",
+    "    print(f\"Price = Rs {price}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 64,
+   "id": "514526ba-b005-4c6f-908e-47137060623a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter size:  large\n",
+      "Extra cheese? (yes/no):  no\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Price = Rs 700\n"
+     ]
+    }
+   ],
+   "source": [
+    "ize = input(\"Enter size: \").strip().lower()\n",
+    "extra_cheese = input(\"Extra cheese? (yes/no): \").strip().lower()\n",
+    "\n",
+    "if size == \"small\":\n",
+    "    if extra_cheese == \"yes\":\n",
+    "        price = 900\n",
+    "    else:\n",
+    "        price = 700\n",
+    "elif size == \"large\":\n",
+    "    if extra_cheese == \"yes\":\n",
+    "        price = 1800\n",
+    "    else:\n",
+    "        price = 1500\n",
+    "else:\n",
+    "    price = 0\n",
+    "    print(\"Invalid size\")\n",
+    "\n",
+    "if size in [\"small\", \"large\"]:\n",
+    "    print(f\"Price = Rs {price}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c036",
+   "metadata": {},
+   "source": [
+    "# Section C: Logical Conditions (and / or / not)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c037",
+   "metadata": {},
+   "source": [
+    "## ✊ 17. Rock, Paper, Scissors Game\n",
+    "\n",
+    "### Goal:\n",
+    "    Decide the winner of a two-player game.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask Player 1 and Player 2 for rock, paper or scissors.\n",
+    "    \n",
+    "    Rock beats scissors, scissors beats paper, paper beats rock.\n",
+    "    \n",
+    "    Use logical operators (and / or) to print the winner.\n",
+    "    \n",
+    "    If both choose the same → \"Draw\".\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Player 1: rock\n",
+    "    Player 2: scissors\n",
+    "    Player 1 wins"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "id": "c038",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Player 1:  rock\n",
+      "Player 2:  rock\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Draw\n"
+     ]
+    }
+   ],
+   "source": [
+    "player1 = input(\"Player 1: \").strip().lower()\n",
+    "player2 = input(\"Player 2: \").strip().lower()\n",
+    "\n",
+    "if player1 == player2:\n",
+    "    print(\"Draw\")\n",
+    "elif (player1 == \"rock\" and player2 == \"scissors\") or \\\n",
+    "     (player1 == \"scissors\" and player2 == \"paper\") or \\\n",
+    "     (player1 == \"paper\" and player2 == \"rock\"):\n",
+    "    print(\"Player 1 wins\")\n",
+    "else:\n",
+    "    print(\"Player 2 wins\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 66,
+   "id": "155d47eb-8998-4dba-bdb2-a785d1f2e005",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Player 1:  paper\n",
+      "Player 2:  rock\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Player 1 wins\n"
+     ]
+    }
+   ],
+   "source": [
+    "player1 = input(\"Player 1: \").strip().lower()\n",
+    "player2 = input(\"Player 2: \").strip().lower()\n",
+    "\n",
+    "if player1 == player2:\n",
+    "    print(\"Draw\")\n",
+    "elif (player1 == \"rock\" and player2 == \"scissors\") or \\\n",
+    "     (player1 == \"scissors\" and player2 == \"paper\") or \\\n",
+    "     (player1 == \"paper\" and player2 == \"rock\"):\n",
+    "    print(\"Player 1 wins\")\n",
+    "else:\n",
+    "    print(\"Player 2 wins\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c039",
+   "metadata": {},
+   "source": [
+    "## 🕒 18. Digital Clock Validator\n",
+    "\n",
+    "### Goal:\n",
+    "    Check whether the time typed into a clock app is real.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for hours and minutes.\n",
+    "    \n",
+    "    Valid only if hours are between 0 and 23 and minutes are between 0 and 59.\n",
+    "    \n",
+    "    Print \"Valid time\" or \"Invalid time\".\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter hours: 25\n",
+    "    Enter minutes: 30\n",
+    "    Invalid time"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 67,
+   "id": "c040",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter hours:  12\n",
+      "Enter minutes:  45\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Valid time\n"
+     ]
+    }
+   ],
+   "source": [
+    "hours = int(input(\"Enter hours: \"))\n",
+    "minutes = int(input(\"Enter minutes: \"))\n",
+    "\n",
+    "if (0 <= hours <= 23) and (0 <= minutes <= 59):\n",
+    "    print(\"Valid time\")\n",
+    "else:\n",
+    "    print(\"Invalid time\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 68,
+   "id": "0d96884a-183f-462e-b9ab-1be75790f900",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter hours:  24\n",
+      "Enter minutes:  0\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Invalid time\n"
+     ]
+    }
+   ],
+   "source": [
+    "hours = int(input(\"Enter hours: \"))\n",
+    "minutes = int(input(\"Enter minutes: \"))\n",
+    "\n",
+    "if (0 <= hours <= 23) and (0 <= minutes <= 59):\n",
+    "    print(\"Valid time\")\n",
+    "else:\n",
+    "    print(\"Invalid time\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c041",
+   "metadata": {},
+   "source": [
+    "## 🏏 19. Cricket Team Selection\n",
+    "\n",
+    "### Goal:\n",
+    "    Help a coach decide whether a player joins the team.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for age, height in cm and fitness score (out of 10).\n",
+    "    \n",
+    "    A player is selected if age is 25 or below AND (height is at least 170 OR fitness score is at least 8).\n",
+    "    \n",
+    "    Print \"Selected\" or \"Not selected\".\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter age: 22\n",
+    "    Enter height: 165\n",
+    "    Enter fitness score: 9\n",
+    "    Selected"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 69,
+   "id": "c042",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter age:  20\n",
+      "Enter height:  175\n",
+      "Enter fitness score:  6\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Selected\n"
+     ]
+    }
+   ],
+   "source": [
+    "age = int(input(\"Enter age: \"))\n",
+    "height = int(input(\"Enter height: \"))\n",
+    "fitness = int(input(\"Enter fitness score: \"))\n",
+    "\n",
+    "if age <= 25 and (height >= 170 or fitness >= 8):\n",
+    "    print(\"Selected\")\n",
+    "else:\n",
+    "    print(\"Not selected\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 71,
+   "id": "727241f3-5869-4e43-aca5-224907f5213d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter age:  28\n",
+      "Enter height:  175\n",
+      "Enter fitness score:  9\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Not selected\n"
+     ]
+    }
+   ],
+   "source": [
+    "age = int(input(\"Enter age: \"))\n",
+    "height = int(input(\"Enter height: \"))\n",
+    "fitness = int(input(\"Enter fitness score: \"))\n",
+    "\n",
+    "if age <= 25 and (height >= 170 or fitness >= 8):\n",
+    "    print(\"Selected\")\n",
+    "else:\n",
+    "    print(\"Not selected\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c043",
+   "metadata": {},
+   "source": [
+    "## 📐 20. Roof Truss Angle Check\n",
+    "\n",
+    "### Goal:\n",
+    "    Help a civil engineer check whether three angles can form a triangle.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for three angles.\n",
+    "    \n",
+    "    Valid only if every angle is greater than 0 AND the sum of the three angles is exactly 180.\n",
+    "    \n",
+    "    Print \"Valid triangle\" or \"Invalid triangle\".\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter angles: 60, 60, 60\n",
+    "    Valid triangle"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 72,
+   "id": "c044",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter angle 1:  90\n",
+      "Enter angle 2:  45\n",
+      "Enter angle 3:  45\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Valid triangle\n"
+     ]
+    }
+   ],
+   "source": [
+    "angle1 = float(input(\"Enter angle 1: \"))\n",
+    "angle2 = float(input(\"Enter angle 2: \"))\n",
+    "angle3 = float(input(\"Enter angle 3: \"))\n",
+    "\n",
+    "if (angle1 > 0 and angle2 > 0 and angle3 > 0) and (angle1 + angle2 + angle3 == 180):\n",
+    "    print(\"Valid triangle\")\n",
+    "else:\n",
+    "    print(\"Invalid triangle\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 73,
+   "id": "2dd15cc5-be20-4311-8c2f-6ecbdf3d54cb",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter angle 1:  50\n",
+      "Enter angle 2:  50\n",
+      "Enter angle 3:  50\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Invalid triangle\n"
+     ]
+    }
+   ],
+   "source": [
+    "angle1 = float(input(\"Enter angle 1: \"))\n",
+    "angle2 = float(input(\"Enter angle 2: \"))\n",
+    "angle3 = float(input(\"Enter angle 3: \"))\n",
+    "\n",
+    "if (angle1 > 0 and angle2 > 0 and angle3 > 0) and (angle1 + angle2 + angle3 == 180):\n",
+    "    print(\"Valid triangle\")\n",
+    "else:\n",
+    "    print(\"Invalid triangle\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c045",
+   "metadata": {},
+   "source": [
+    "## ⏰ 21. Smart Alarm Controller\n",
+    "\n",
+    "### Goal:\n",
+    "    Decide whether a phone alarm should ring.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for the day type (weekday or weekend) and the current hour (0-23).\n",
+    "    \n",
+    "    The alarm rings if it is a weekday and the hour is 7, OR it is a weekend and the hour is 9.\n",
+    "    \n",
+    "    Otherwise print \"Alarm is silent\".\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter day type: weekend\n",
+    "    Enter hour: 9\n",
+    "    Alarm rings"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 78,
+   "id": "ded0d395-6276-4afc-aeba-f69f478321ad",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter day type:  weekend\n",
+      "Enter hour:  7\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Alarm is silent\n"
+     ]
+    }
+   ],
+   "source": [
+    "day_type = input(\"Enter day type: \").lower()\n",
+    "hour = int(input(\"Enter hour: \"))\n",
+    "\n",
+    "if (day_type == \"weekday\" and hour == 7) or (day_type == \"weekend\" and hour == 9):\n",
+    "    print(\"Alarm rings\")\n",
+    "else:\n",
+    "    print(\"Alarm is silent\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 79,
+   "id": "dfe24b07-8a62-4f55-aae6-d14431a3f49d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter day type:  weekday\n",
+      "Enter hour:  7\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Alarm rings\n"
+     ]
+    }
+   ],
+   "source": [
+    "day_type = input(\"Enter day type: \").lower()\n",
+    "hour = int(input(\"Enter hour: \"))\n",
+    "\n",
+    "if (day_type == \"weekday\" and hour == 7) or (day_type == \"weekend\" and hour == 9):\n",
+    "    print(\"Alarm rings\")\n",
+    "else:\n",
+    "    print(\"Alarm is silent\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c047",
+   "metadata": {},
+   "source": [
+    "## 🎰 22. Lucky Draw Number Check\n",
+    "\n",
+    "### Goal:\n",
+    "    Decide whether a customer's number is accepted in a lucky draw.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for a number.\n",
+    "    \n",
+    "    Accept it if it is between 10 and 50 (inclusive) OR exactly 100.\n",
+    "    \n",
+    "    Print \"Accepted\" or \"Rejected\".\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter number: 100\n",
+    "    Accepted"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 80,
+   "id": "c048",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter number:  25\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Accepted\n"
+     ]
+    }
+   ],
+   "source": [
+    "num = int(input(\"Enter number: \"))\n",
+    "\n",
+    "if (10 <= num <= 50) or (num == 100):\n",
+    "    print(\"Accepted\")\n",
+    "else:\n",
+    "    print(\"Rejected\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 81,
+   "id": "5d408a09-2f0c-4045-834c-4f5d47e41286",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter number:  75\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Rejected\n"
+     ]
+    }
+   ],
+   "source": [
+    "num = int(input(\"Enter number: \"))\n",
+    "\n",
+    "if (10 <= num <= 50) or (num == 100):\n",
+    "    print(\"Accepted\")\n",
+    "else:\n",
+    "    print(\"Rejected\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c049",
+   "metadata": {},
+   "source": [
+    "## 🎫 23. Discount Coupon Validator\n",
+    "\n",
+    "### Goal:\n",
+    "    Check whether an online shop should accept a coupon.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for the coupon code, the bill amount and whether the customer is a member (yes/no).\n",
+    "    \n",
+    "    The coupon works only if the code is \"SAVE20\" AND (bill is at least 1000 OR customer is a member).\n",
+    "    \n",
+    "    Print \"Coupon applied\" or \"Coupon not valid\".\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter code: SAVE20\n",
+    "    Enter bill: 700\n",
+    "    Is member? yes\n",
+    "    Coupon applied"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 82,
+   "id": "c050",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter code:  SAVE20\n",
+      "Enter bill:  1200\n",
+      "Is member?  no\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Coupon applied\n"
+     ]
+    }
+   ],
+   "source": [
+    "code = input(\"Enter code: \")\n",
+    "bill = float(input(\"Enter bill: \"))\n",
+    "is_member = input(\"Is member? \").lower()\n",
+    "\n",
+    "if code == \"SAVE20\" and (bill >= 1000 or is_member == \"yes\"):\n",
+    "    print(\"Coupon applied\")\n",
+    "else:\n",
+    "    print(\"Coupon not valid\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 84,
+   "id": "bab7ef1f-0ebb-4699-8cf0-f9bb518e7e41",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter code:  SAVE25\n",
+      "Enter bill:  1500\n",
+      "Is member?  yes\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Coupon not valid\n"
+     ]
+    }
+   ],
+   "source": [
+    "code = input(\"Enter code: \")\n",
+    "bill = float(input(\"Enter bill: \"))\n",
+    "is_member = input(\"Is member? \").lower()\n",
+    "\n",
+    "if code == \"SAVE20\" and (bill >= 1000 or is_member == \"yes\"):\n",
+    "    print(\"Coupon applied\")\n",
+    "else:\n",
+    "    print(\"Coupon not valid\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c051",
+   "metadata": {},
+   "source": [
+    "## 🚪 24. Club Entry Gate\n",
+    "\n",
+    "### Goal:\n",
+    "    Decide whether a guest may enter an event.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for age, whether the guest has shown ID (yes/no) and whether the guest is banned (yes/no).\n",
+    "    \n",
+    "    Entry is allowed if age is 21 or more AND ID is shown AND the guest is NOT banned (use the not operator).\n",
+    "    \n",
+    "    Print \"Entry allowed\" or \"Entry denied\".\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter age: 25\n",
+    "    ID shown? yes\n",
+    "    Banned? no\n",
+    "    Entry allowed"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 88,
+   "id": "c052",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter age:  30\n",
+      "ID shown?  yes\n",
+      "Banned?  yes\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Entry denied\n"
+     ]
+    }
+   ],
+   "source": [
+    "age = int(input(\"Enter age: \"))\n",
+    "id_shown = input(\"ID shown? \").lower()\n",
+    "banned = input(\"Banned? \").lower()\n",
+    "\n",
+    "if age >= 21 and id_shown == \"yes\" and not (banned == \"yes\"):\n",
+    "    print(\"Entry allowed\")\n",
+    "else:\n",
+    "    print(\"Entry denied\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 86,
+   "id": "708095ac-0b2f-44cc-b67d-577143769001",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter age:  18\n",
+      "ID shown?  yes\n",
+      "Banned?  no\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Entry denied\n"
+     ]
+    }
+   ],
+   "source": [
+    "age = int(input(\"Enter age: \"))\n",
+    "id_shown = input(\"ID shown? \").lower()\n",
+    "banned = input(\"Banned? \").lower()\n",
+    "\n",
+    "if age >= 21 and id_shown == \"yes\" and not (banned == \"yes\"):\n",
+    "    print(\"Entry allowed\")\n",
+    "else:\n",
+    "    print(\"Entry denied\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c053",
+   "metadata": {},
+   "source": [
+    "# Section D: Truthy and Falsy Values"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c054",
+   "metadata": {},
+   "source": [
+    "## 📝 25. Contact Form Validator\n",
+    "\n",
+    "### Goal:\n",
+    "    Check which fields a user left empty on a sign-up form.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Create form = {\"name\": \"Sara\", \"email\": \"\", \"phone\": \"03001234567\", \"city\": \"\"}.\n",
+    "    \n",
+    "    Loop through the form fields.\n",
+    "    \n",
+    "    If the value is truthy → print \"<field> is filled\".\n",
+    "    \n",
+    "    Otherwise → print \"<field> is missing\".\n",
+    "    \n",
+    "    Do not compare with == \"\"; use truthiness only.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    name is filled\n",
+    "    email is missing\n",
+    "    phone is filled\n",
+    "    city is missing"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 105,
+   "id": "c055",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "name is filled\n",
+      "email is missing\n",
+      "phone is filled\n",
+      "city is filled\n"
+     ]
+    }
+   ],
+   "source": [
+    "form_1 = {\"name\": \"Sara\", \"email\": \"\", \"phone\": \"03001234567\", \"city\": \"Karachi\"}\n",
+    "\n",
+    "for field, value in form_1.items():\n",
+    "    if value:\n",
+    "        print(f\"{field} is filled\")\n",
+    "    else:\n",
+    "        print(f\"{field} is missing\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 106,
+   "id": "68ee22fc-2b8c-4d7d-8e61-ce6443c6bbe6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "name is missing\n",
+      "email is filled\n",
+      "phone is missing\n",
+      "city is filled\n"
+     ]
+    }
+   ],
+   "source": [
+    "form_2 = {\"name\": \"\", \"email\": \"ali@example.com\", \"phone\": \"\", \"city\": \"Lahore\"}\n",
+    "\n",
+    "for field, value in form_2.items():\n",
+    "    if value:\n",
+    "        print(f\"{field} is filled\")\n",
+    "    else:\n",
+    "        print(f\"{field} is missing\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c056",
+   "metadata": {},
+   "source": [
+    "## 👤 26. Display Name Selector\n",
+    "\n",
+    "### Goal:\n",
+    "    Choose the name a chat app should show for a user.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for the first name and the nickname.\n",
+    "    \n",
+    "    Use the or operator: display_name = nickname or first name or \"Anonymous\".\n",
+    "    \n",
+    "    Print the display name.\n",
+    "    \n",
+    "    Test with an empty nickname and with both inputs empty.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter first name: Ahmed\n",
+    "    Enter nickname:\n",
+    "    Ahmed"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 109,
+   "id": "bdd503f6-0968-480f-8186-24f58129a405",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter first name:  sara\n",
+      "Enter nickname:  \n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "sara\n"
+     ]
+    }
+   ],
+   "source": [
+    "first_name = input(\"Enter first name: \")\n",
+    "nickname = input(\"Enter nickname: \")\n",
+    "\n",
+    "display_name = nickname or first_name or \"Anonymous\"\n",
+    "print(display_name)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 110,
+   "id": "c057",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter first name:  hamid\n",
+      "Enter nickname:  \n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "hamid\n"
+     ]
+    }
+   ],
+   "source": [
+    "first_name = input(\"Enter first name: \")\n",
+    "nickname = input(\"Enter nickname: \")\n",
+    "\n",
+    "display_name = nickname or first_name or \"Anonymous\"\n",
+    "print(display_name)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c058",
+   "metadata": {},
+   "source": [
+    "## 📋 27. Survey Response Cleanup\n",
+    "\n",
+    "### Goal:\n",
+    "    Remove blank answers from a customer survey.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Create answers = [\"Good\", \"\", \"Excellent\", None, \"Average\", \"\"].\n",
+    "    \n",
+    "    Loop through the list.\n",
+    "    \n",
+    "    Add an answer to a new list only if it is truthy.\n",
+    "    \n",
+    "    Print the cleaned list and how many answers were removed.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Cleaned: ['Good', 'Excellent', 'Average']\n",
+    "    Removed: 3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 113,
+   "id": "c059",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Cleaned: ['Good', 'Excellent', 'Average']\n",
+      "Removed: 3\n"
+     ]
+    }
+   ],
+   "source": [
+    "answers = [\"Good\", \"\", \"Excellent\", None, \"Average\", \"\"]\n",
+    "cleaned = []\n",
+    "removed_count = 0\n",
+    "\n",
+    "for ans in answers:\n",
+    "    if ans:\n",
+    "        cleaned.append(ans)\n",
+    "    else:\n",
+    "        removed_count += 1\n",
+    "\n",
+    "print(f\"Cleaned: {cleaned}\")\n",
+    "print(f\"Removed: {removed_count}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 114,
+   "id": "ade596a4-3a9f-4e7f-b6dd-9be63d77cab5",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Cleaned: ['Bad', 'Poor', 'Average']\n",
+      "Removed: 3\n"
+     ]
+    }
+   ],
+   "source": [
+    "answers = [\"\", \"Bad\", None, \"Poor\", \"\", \"Average\", ]\n",
+    "cleaned= []\n",
+    "removed_count = 0\n",
+    "\n",
+    "for ans in answers:\n",
+    "    if ans:\n",
+    "        cleaned.append(ans)\n",
+    "    else:\n",
+    "        removed_count += 1\n",
+    "\n",
+    "print(f\"Cleaned: {cleaned}\")\n",
+    "print(f\"Removed: {removed_count}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c060",
+   "metadata": {},
+   "source": [
+    "## 🔍 28. Product Search Results\n",
+    "\n",
+    "### Goal:\n",
+    "    Show a message after a user searches in an online store.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Create a list results (for example [\"Phone\", \"Charger\"]).\n",
+    "    \n",
+    "    Without using len() in the condition, check if the list is truthy.\n",
+    "    \n",
+    "    If it has items → \"Found <n> results\".\n",
+    "    \n",
+    "    If it is empty → \"No results found\".\n",
+    "    \n",
+    "    Test with both a filled and an empty list.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    results = ['Phone', 'Charger']\n",
+    "    Found 2 results"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 115,
+   "id": "c061",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Found 2 results\n"
+     ]
+    }
+   ],
+   "source": [
+    "results = [\"Phone\", \"Charger\"]\n",
+    "\n",
+    "if results:\n",
+    "    print(f\"Found {len(results)} results\")\n",
+    "else:\n",
+    "    print(\"No results found\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 116,
+   "id": "65a16b15-1f77-4842-b98a-a870a6c32c53",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "No results found\n"
+     ]
+    }
+   ],
+   "source": [
+    "results = []\n",
+    "\n",
+    "if results:\n",
+    "    print(f\"Found {len(results)} results\")\n",
+    "else:\n",
+    "    print(\"No results found\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c062",
+   "metadata": {},
+   "source": [
+    "## 📦 29. Inventory Alert\n",
+    "\n",
+    "### Goal:\n",
+    "    Warn a shopkeeper about items that are out of stock.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Create stock = {\"Pens\": 25, \"Notebooks\": 0, \"Markers\": 8, \"Erasers\": 0}.\n",
+    "    \n",
+    "    Loop through the items and their quantities.\n",
+    "    \n",
+    "    If the quantity is truthy → print \"<item>: in stock\".\n",
+    "    \n",
+    "    Otherwise → print \"<item>: OUT OF STOCK\".\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Pens: in stock\n",
+    "    Notebooks: OUT OF STOCK\n",
+    "    Markers: in stock\n",
+    "    Erasers: OUT OF STOCK"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 186,
+   "id": "c063",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Pens: in stock\n",
+      "Notebooks: in stock\n",
+      "Markers: OUT OF STOCK\n",
+      "Erasers: in stock\n"
+     ]
+    }
+   ],
+   "source": [
+    "stock = {\"Pens\": 25, \"Notebooks\": 15, \"Markers\": 0, \"Erasers\": 5}\n",
+    "\n",
+    "for item, qty in stock.items():\n",
+    "    if qty:\n",
+    "        print(f\"{item}: in stock\")\n",
+    "    else:\n",
+    "        print(f\"{item}: OUT OF STOCK\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 188,
+   "id": "e96e82bc-2c08-47b4-a9a5-7b1782203c3c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Pencils: in stock\n",
+      "Rulers: OUT OF STOCK\n",
+      "Colors: in stock\n",
+      "Sharpeners: OUT OF STOCK\n"
+     ]
+    }
+   ],
+   "source": [
+    "stock = {\"Pencils\": 10, \"Rulers\":0 , \"Colors\": 5, \"Sharpeners\": 0}\n",
+    "\n",
+    "for item, qty in stock.items():\n",
+    "    if qty:\n",
+    "        print(f\"{item}: in stock\")\n",
+    "    else:\n",
+    "        print(f\"{item}: OUT OF STOCK\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c064",
+   "metadata": {},
+   "source": [
+    "## ⚙️ 30. App Settings Checker\n",
+    "\n",
+    "### Goal:\n",
+    "    Check which settings a user has configured in an app.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Create settings = {\"theme\": \"dark\", \"volume\": 0, \"nickname\": \"\"}.\n",
+    "    \n",
+    "    Loop through the keys [\"theme\", \"volume\", \"nickname\", \"language\"].\n",
+    "    \n",
+    "    Use settings.get(key) with a truthiness check.\n",
+    "    \n",
+    "    Truthy → \"<key> is set to <value>\", otherwise \"<key> is empty or missing\".\n",
+    "    \n",
+    "    Add a comment explaining why volume (0) is treated as empty.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    theme is set to dark\n",
+    "    volume is empty or missing\n",
+    "    nickname is empty or missing\n",
+    "    language is empty or missing"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 124,
+   "id": "c065",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "theme is set to dark\n",
+      "volume is set to 20\n",
+      "nickname is empty or missing\n",
+      "language is set to urdu\n"
+     ]
+    }
+   ],
+   "source": [
+    "settings = {\"theme\": \"dark\", \"volume\": 20, \"nickname\": \"\", \"language\":\"urdu\"}\n",
+    "keys_list = [\"theme\", \"volume\", \"nickname\", \"language\"]\n",
+    "\n",
+    "for key in keys_list:\n",
+    "    value = settings.get(key)\n",
+    "    if value:\n",
+    "        print(f\"{key} is set to {value}\")\n",
+    "    else:\n",
+    "        print(f\"{key} is empty or missing\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 127,
+   "id": "9f5a0a1f-f549-4a83-a565-84b8173a5109",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "theme is set to light\n",
+      "volume is empty or missing\n",
+      "nickname is empty or missing\n",
+      "language is set to English\n"
+     ]
+    }
+   ],
+   "source": [
+    "settings = {\"theme\": \"light\", \"volume\":\"\" , \"nickname\":\"\", \"language\": \"English\"}\n",
+    "keys_list = [\"theme\", \"volume\", \"nickname\", \"language\"]\n",
+    "\n",
+    "for key in keys_list:\n",
+    "    value = settings.get(key)\n",
+    "    if value:\n",
+    "        print(f\"{key} is set to {value}\")\n",
+    "    else:\n",
+    "        print(f\"{key} is empty or missing\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c066",
+   "metadata": {},
+   "source": [
+    "# Section E: Loops"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c067",
+   "metadata": {},
+   "source": [
+    "## 🧱 31. Tile Floor Planner\n",
+    "\n",
+    "### Goal:\n",
+    "    Help a builder see the area covered by square tiles of different sizes.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Use a loop for tile side lengths from 1 to 10 feet.\n",
+    "    \n",
+    "    Calculate area = side * side.\n",
+    "    \n",
+    "    Print each side with its area.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Tile 1 ft → Area 1 sq ft\n",
+    "    Tile 2 ft → Area 4 sq ft\n",
+    "    ...\n",
+    "    Tile 10 ft → Area 100 sq ft"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 159,
+   "id": "c068",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Tile 1 ft -> Area 1 sq ft\n",
+      "Tile 2 ft -> Area 4 sq ft\n",
+      "Tile 3 ft -> Area 9 sq ft\n",
+      "Tile 4 ft -> Area 16 sq ft\n",
+      "Tile 5 ft -> Area 25 sq ft\n",
+      "Tile 6 ft -> Area 36 sq ft\n",
+      "Tile 7 ft -> Area 49 sq ft\n",
+      "Tile 8 ft -> Area 64 sq ft\n",
+      "Tile 9 ft -> Area 81 sq ft\n",
+      "Tile 10 ft -> Area 100 sq ft\n"
+     ]
+    }
+   ],
+   "source": [
+    "for side in range(1, 11):\n",
+    "    area = side * side\n",
+    "    print(\"Tile\", side, \"ft -> Area\", area, \"sq ft\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 160,
+   "id": "33822caf-12cf-4185-9e08-deed431e420e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Tile 1 ft -> Area 1 sq ft\n",
+      "Tile 2 ft -> Area 4 sq ft\n",
+      "Tile 3 ft -> Area 9 sq ft\n",
+      "Tile 4 ft -> Area 16 sq ft\n",
+      "Tile 5 ft -> Area 25 sq ft\n"
+     ]
+    }
+   ],
+   "source": [
+    "for side in range(1, 6):\n",
+    "    area = side * side\n",
+    "    print(\"Tile\", side, \"ft -> Area\", area, \"sq ft\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c069",
+   "metadata": {},
+   "source": [
+    "## 👟 32. Fitness Tracker Average Steps\n",
+    "\n",
+    "### Goal:\n",
+    "    Calculate the average daily steps of a user.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask how many days of data the user wants to enter.\n",
+    "    \n",
+    "    Use a loop to take the steps for each day.\n",
+    "    \n",
+    "    Add the steps to a running total.\n",
+    "    \n",
+    "    Print the average.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Days: 3\n",
+    "    Enter steps: 8000\n",
+    "    Enter steps: 10000\n",
+    "    Enter steps: 6000\n",
+    "    Average = 8000.0"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 161,
+   "id": "c070",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter number of days:  4\n",
+      "Enter steps:  5000\n",
+      "Enter steps:  7000\n",
+      "Enter steps:  9000\n",
+      "Enter steps:  3000\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Average = 750.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "days = int(input(\"Enter number of days: \"))\n",
+    "total = 0\n",
+    "\n",
+    "for i in range(days):\n",
+    "    steps = int(input(\"Enter steps: \"))\n",
+    "    total =+ steps\n",
+    "\n",
+    "average = total / days\n",
+    "print(f\"Average = {average}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 162,
+   "id": "a3e53762-92c4-4bca-80fe-8e274d54d173",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter number of days:  2\n",
+      "Enter steps:  12000\n",
+      "Enter steps:  8000\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Average = 4000.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "days = int(input(\"Enter number of days: \"))\n",
+    "total = 0\n",
+    "\n",
+    "for i in range(days):\n",
+    "    steps = int(input(\"Enter steps: \"))\n",
+    "    total =+ steps\n",
+    "\n",
+    "average = total / days\n",
+    "print(f\"Average = {average}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c071",
+   "metadata": {},
+   "source": [
+    "## 🌤️ 33. Weather Display Table\n",
+    "\n",
+    "### Goal:\n",
+    "    Show a Celsius to Fahrenheit chart in a weather app.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Loop through 0 to 100 degrees Celsius in steps of 10.\n",
+    "    \n",
+    "    Convert each value with F = C * 9/5 + 32.\n",
+    "    \n",
+    "    Print each row.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    0 C = 32.0 F\n",
+    "    10 C = 50.0 F\n",
+    "    ...\n",
+    "    100 C = 212.0 F"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 163,
+   "id": "c072",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0 C = 32.0 F\n",
+      "10 C = 50.0 F\n",
+      "20 C = 68.0 F\n",
+      "30 C = 86.0 F\n",
+      "40 C = 104.0 F\n",
+      "50 C = 122.0 F\n",
+      "60 C = 140.0 F\n",
+      "70 C = 158.0 F\n",
+      "80 C = 176.0 F\n",
+      "90 C = 194.0 F\n",
+      "100 C = 212.0 F\n"
+     ]
+    }
+   ],
+   "source": [
+    "for c in range(0, 101, 10):\n",
+    "    f = c * 9/5 + 32\n",
+    "    print(f\"{c} C = {f} F\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 164,
+   "id": "5d0ee8c0-056a-40cc-9033-6014732e2c80",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0 C = 32.0 F\n",
+      "10 C = 50.0 F\n",
+      "20 C = 68.0 F\n",
+      "30 C = 86.0 F\n",
+      "40 C = 104.0 F\n",
+      "50 C = 122.0 F\n"
+     ]
+    }
+   ],
+   "source": [
+    "for c in range(0, 51, 10):\n",
+    "    f = c * 9/5 + 32\n",
+    "    print(f\"{c} C = {f} F\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c073",
+   "metadata": {},
+   "source": [
+    "## 💱 34. Currency Converter Table\n",
+    "\n",
+    "### Goal:\n",
+    "    Create a price chart for tourists exchanging dollars.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for today's exchange rate (PKR per 1 USD).\n",
+    "    \n",
+    "    Loop from 1 to 10 dollars.\n",
+    "    \n",
+    "    Print each dollar amount with its value in PKR.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Enter rate: 280\n",
+    "    1 USD = 280 PKR\n",
+    "    2 USD = 560 PKR\n",
+    "    ...\n",
+    "    10 USD = 2800 PKR"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 169,
+   "id": "ab90c495-fa03-4cb3-8953-3ec97f693b4e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter rate: 275\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1 USD = 275.0 PKR\n",
+      "2 USD = 550.0 PKR\n",
+      "3 USD = 825.0 PKR\n",
+      "4 USD = 1100.0 PKR\n",
+      "5 USD = 1375.0 PKR\n",
+      "6 USD = 1650.0 PKR\n",
+      "7 USD = 1925.0 PKR\n",
+      "8 USD = 2200.0 PKR\n",
+      "9 USD = 2475.0 PKR\n",
+      "10 USD = 2750.0 PKR\n"
+     ]
+    }
+   ],
+   "source": [
+    "rate = float(input(\"Enter rate:\"))\n",
+    "\n",
+    "for dollar in range(1, 11):\n",
+    "    pkr = dollar * rate\n",
+    "    print(f\"{dollar} USD = {pkr} PKR\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 170,
+   "id": "c074",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter rate: 290\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1 USD = 290.0 PKR\n",
+      "2 USD = 580.0 PKR\n",
+      "3 USD = 870.0 PKR\n",
+      "4 USD = 1160.0 PKR\n",
+      "5 USD = 1450.0 PKR\n",
+      "6 USD = 1740.0 PKR\n",
+      "7 USD = 2030.0 PKR\n",
+      "8 USD = 2320.0 PKR\n",
+      "9 USD = 2610.0 PKR\n",
+      "10 USD = 2900.0 PKR\n"
+     ]
+    }
+   ],
+   "source": [
+    "rate = float(input(\"Enter rate:\"))\n",
+    "for dollar in range(1, 11):\n",
+    "    pkr = dollar * rate\n",
+    "    print(f\"{dollar} USD = {pkr} PKR\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c075",
+   "metadata": {},
+   "source": [
+    "## 🎟️ 35. Lucky Ticket Digit Sum\n",
+    "\n",
+    "### Goal:\n",
+    "    A raffle adds up the digits of every ticket number.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for a ticket number.\n",
+    "    \n",
+    "    Use a while loop with % and // to pick out each digit.\n",
+    "    \n",
+    "    Add the digits together.\n",
+    "    \n",
+    "    Print the digit sum.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Ticket: 4582\n",
+    "    Digit sum = 19"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 171,
+   "id": "c076",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Ticket:  9315\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Digit sum = 18\n"
+     ]
+    }
+   ],
+   "source": [
+    "ticket = int(input(\"Ticket: \"))\n",
+    "\n",
+    "digit_sum = 0\n",
+    "temp = ticket\n",
+    "\n",
+    "while temp > 0:\n",
+    "    digit = temp % 10\n",
+    "    digit_sum += digit\n",
+    "    temp = temp // 10\n",
+    "\n",
+    "print(f\"Digit sum = {digit_sum}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 172,
+   "id": "55078cdf-31cb-47e6-be63-2a48db1cccaf",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Ticket:  6284\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Digit sum = 20\n"
+     ]
+    }
+   ],
+   "source": [
+    "ticket = int(input(\"Ticket: \"))\n",
+    "\n",
+    "digit_sum = 0\n",
+    "temp = ticket\n",
+    "\n",
+    "while temp > 0:\n",
+    "    digit = temp % 10\n",
+    "    digit_sum += digit\n",
+    "    temp = temp // 10\n",
+    "\n",
+    "print(f\"Digit sum = {digit_sum}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c077",
+   "metadata": {},
+   "source": [
+    "## 🧫 36. Bacteria Growth Tracker\n",
+    "\n",
+    "### Goal:\n",
+    "    A lab starts with 1 bacterium that doubles every hour.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Start with count = 1.\n",
+    "    \n",
+    "    Use a loop for 10 hours.\n",
+    "    \n",
+    "    Multiply the count by 2 each hour (do not use ** or pow()).\n",
+    "    \n",
+    "    Print the count after every hour.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Hour 1: 2\n",
+    "    Hour 2: 4\n",
+    "    ...\n",
+    "    Hour 10: 1024"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 173,
+   "id": "c078",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter starting bacteria count:  3\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hour 1: 6\n",
+      "Hour 2: 12\n",
+      "Hour 3: 24\n",
+      "Hour 4: 48\n",
+      "Hour 5: 96\n",
+      "Hour 6: 192\n",
+      "Hour 7: 384\n",
+      "Hour 8: 768\n",
+      "Hour 9: 1536\n",
+      "Hour 10: 3072\n"
+     ]
+    }
+   ],
+   "source": [
+    "count = int(input(\"Enter starting bacteria count: \"))\n",
+    "\n",
+    "for hour in range(1, 11):\n",
+    "    count = count * 2\n",
+    "    print(f\"Hour {hour}: {count}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 174,
+   "id": "bc56d85d-7f6e-42fc-837a-be4718c5ce7e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter starting bacteria count:  5\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hour 1: 10\n",
+      "Hour 2: 20\n",
+      "Hour 3: 40\n",
+      "Hour 4: 80\n",
+      "Hour 5: 160\n",
+      "Hour 6: 320\n",
+      "Hour 7: 640\n",
+      "Hour 8: 1280\n",
+      "Hour 9: 2560\n",
+      "Hour 10: 5120\n"
+     ]
+    }
+   ],
+   "source": [
+    "count = int(input(\"Enter starting bacteria count: \"))\n",
+    "\n",
+    "for hour in range(1, 11):\n",
+    "    count = count * 2\n",
+    "    print(f\"Hour {hour}: {count}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c079",
+   "metadata": {},
+   "source": [
+    "## 💰 37. Savings Account Growth\n",
+    "\n",
+    "### Goal:\n",
+    "    Show how a bank deposit grows year after year.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for the principal amount, yearly interest rate (%) and number of years.\n",
+    "    \n",
+    "    Use a loop to add the yearly interest to the amount.\n",
+    "    \n",
+    "    Print the amount at the end of each year, rounded to 2 decimals.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Principal: 10000, Rate: 10, Years: 3\n",
+    "    Year 1: 11000.0\n",
+    "    Year 2: 12100.0\n",
+    "    Year 3: 13310.0"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 175,
+   "id": "c080",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Principal:  5000\n",
+      "Rate:  5\n",
+      "Years:  3\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Year 1: 5250.0\n",
+      "Year 2: 5512.5\n",
+      "Year 3: 5788.12\n"
+     ]
+    }
+   ],
+   "source": [
+    "principal = float(input(\"Principal: \"))\n",
+    "rate = float(input(\"Rate: \"))\n",
+    "years = int(input(\"Years: \"))\n",
+    "\n",
+    "amount = principal\n",
+    "for year in range(1, years + 1):\n",
+    "    amount += amount * (rate / 100)\n",
+    "    print(f\"Year {year}: {round(amount, 2)}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 176,
+   "id": "42780246-17ba-4b90-9a1e-b32cb70cf6a9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Principal:  20000\n",
+      "Rate:  8\n",
+      "Years:  4\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Year 1: 21600.0\n",
+      "Year 2: 23328.0\n",
+      "Year 3: 25194.24\n",
+      "Year 4: 27209.78\n"
+     ]
+    }
+   ],
+   "source": [
+    "principal = float(input(\"Principal: \"))\n",
+    "rate = float(input(\"Rate: \"))\n",
+    "years = int(input(\"Years: \"))\n",
+    "\n",
+    "amount = principal\n",
+    "for year in range(1, years + 1):\n",
+    "    amount += amount * (rate / 100)\n",
+    "    print(f\"Year {year}: {round(amount, 2)}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c081",
+   "metadata": {},
+   "source": [
+    "## 💊 38. Medicine Half-Life\n",
+    "\n",
+    "### Goal:\n",
+    "    A medicine amount in the body halves every hour.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for the starting dose in mg.\n",
+    "    \n",
+    "    Use a while loop: while the amount is 1 mg or more, divide it by 2.\n",
+    "    \n",
+    "    Count how many hours pass.\n",
+    "    \n",
+    "    Print the number of hours.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Dose: 20 mg\n",
+    "    5 hours"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 177,
+   "id": "c082",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Dose:  50\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "6 hours\n"
+     ]
+    }
+   ],
+   "source": [
+    "dose = float(input(\"Dose: \"))\n",
+    "hours = 0\n",
+    "\n",
+    "while dose >= 1:\n",
+    "    dose = dose / 2\n",
+    "    hours += 1\n",
+    "\n",
+    "print(f\"{hours} hours\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 178,
+   "id": "8acbe118-680f-4d87-84f1-7e22e006a096",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Dose:  100\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "7 hours\n"
+     ]
+    }
+   ],
+   "source": [
+    "dose = float(input(\"Dose: \"))\n",
+    "hours = 0\n",
+    "\n",
+    "while dose >= 1:\n",
+    "    dose = dose / 2\n",
+    "    hours += 1\n",
+    "\n",
+    "print(f\"{hours} hours\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c083",
+   "metadata": {},
+   "source": [
+    "## 🧾 39. Cashier Bill Total\n",
+    "\n",
+    "### Goal:\n",
+    "    Add the prices of items on a bill without using sum().\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Create prices = [120, 75, 230, 45].\n",
+    "    \n",
+    "    Loop through the list and add each price to a total.\n",
+    "    \n",
+    "    Print the final bill.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Bill = 470"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 181,
+   "id": "c084",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter prices separated by space:  150 80 320 50\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Bill = 600.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "prices_input = input(\"Enter prices separated by space: \")\n",
+    "prices = [float(p) for p in prices_input.split()]\n",
+    "\n",
+    "bill = 0\n",
+    "for price in prices:\n",
+    "    bill += price\n",
+    "\n",
+    "print(f\"Bill = {bill}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 182,
+   "id": "49713e33-7e3e-477d-b1e6-be00ec033852",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter prices separated by space:  99 250 150\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Bill = 499.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "prices_input = input(\"Enter prices separated by space: \")\n",
+    "prices = [float(p) for p in prices_input.split()]\n",
+    "\n",
+    "bill = 0\n",
+    "for price in prices:\n",
+    "    bill += price\n",
+    "\n",
+    "print(f\"Bill = {bill}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c085",
+   "metadata": {},
+   "source": [
+    "## 🛒 40. Grocery Receipt\n",
+    "\n",
+    "### Goal:\n",
+    "    Print a numbered receipt list.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Create items = [\"Rice\", \"Milk\", \"Eggs\"].\n",
+    "    \n",
+    "    Use range(len(items)) to loop through the list.\n",
+    "    \n",
+    "    Print each item with its serial number starting from 1.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    1. Rice\n",
+    "    2. Milk\n",
+    "    3. Eggs"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 183,
+   "id": "c086",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter items separated by comma:  Bread, Butter, Cheese, Tea\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1. Bread\n",
+      "2. Butter\n",
+      "3. Cheese\n",
+      "4. Tea\n"
+     ]
+    }
+   ],
+   "source": [
+    "items_input = input(\"Enter items separated by comma: \")\n",
+    "items = [item.strip() for item in items_input.split(\",\")]\n",
+    "\n",
+    "for i in range(len(items)):\n",
+    "    print(f\"{i + 1}. {items[i]}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 184,
+   "id": "df051d91-bff3-41af-b299-6fe72ca9808e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter items separated by comma:  Apple, Banana, Orange\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1. Apple\n",
+      "2. Banana\n",
+      "3. Orange\n"
+     ]
+    }
+   ],
+   "source": [
+    "items_input = input(\"Enter items separated by comma: \")\n",
+    "items = [item.strip() for item in items_input.split(\",\")]\n",
+    "\n",
+    "for i in range(len(items)):\n",
+    "    print(f\"{i + 1}. {items[i]}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c087",
+   "metadata": {},
+   "source": [
+    "# Section F: Loops with Conditions"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c088",
+   "metadata": {},
+   "source": [
+    "## 🎯 41. Lucky Seat Draw\n",
+    "\n",
+    "### Goal:\n",
+    "    In a hall with 100 seats, every seat number divisible by 7 wins a prize.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Loop through seat numbers 1 to 100.\n",
+    "    \n",
+    "    If the seat number is divisible by 7, print it.\n",
+    "    \n",
+    "    Count the winning seats and print the count.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Winning seats: 7 14 21 ... 98\n",
+    "    Count = 14"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 130,
+   "id": "c089",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Winning seats:\n",
+      "7 14 21 28 35 42 49 56 63 70 77 84 91 98 \n",
+      "Count = 14\n"
+     ]
+    }
+   ],
+   "source": [
+    "count = 0\n",
+    "\n",
+    "print(\"Winning seats:\")\n",
+    "for seat in range(1, 101):\n",
+    "    if seat % 7 == 0:\n",
+    "        print(seat, end=\" \")\n",
+    "        count = count + 1\n",
+    "\n",
+    "print(\"\\nCount =\", count)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 133,
+   "id": "9203ca64-8573-49e6-9a95-433f5243cf7e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter total seats:  50\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Winning seats:\n",
+      "7 14 21 28 35 42 49 \n",
+      "Count = 7\n"
+     ]
+    }
+   ],
+   "source": [
+    "total_seats = int(input(\"Enter total seats: \"))\n",
+    "count = 0\n",
+    "\n",
+    "print(\"Winning seats:\")\n",
+    "for seat in range(1, total_seats + 1):\n",
+    "    if seat % 7 == 0:\n",
+    "        print(seat, end=\" \")\n",
+    "        count = count + 1\n",
+    "\n",
+    "print(\"\\nCount =\", count)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c090",
+   "metadata": {},
+   "source": [
+    "## 🔐 42. Password Letter Analyzer\n",
+    "\n",
+    "### Goal:\n",
+    "    Analyse how many uppercase and lowercase letters a password has.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for a password.\n",
+    "    \n",
+    "    Loop through each character.\n",
+    "    \n",
+    "    Count uppercase letters and lowercase letters separately (ignore digits and symbols).\n",
+    "    \n",
+    "    Print both counts.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Password: Hello World\n",
+    "    Uppercase: 2\n",
+    "    Lowercase: 8"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 135,
+   "id": "c091",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter password:  Hamid98\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Uppercase: 1\n",
+      "Lowercase: 4\n"
+     ]
+    }
+   ],
+   "source": [
+    "password = input(\"Enter password: \")\n",
+    "\n",
+    "uppercase = 0\n",
+    "lowercase = 0\n",
+    "\n",
+    "for char in password:\n",
+    "    if char.isupper():\n",
+    "        uppercase = uppercase + 1\n",
+    "    elif char.islower():\n",
+    "        lowercase = lowercase + 1\n",
+    "\n",
+    "print(\"Uppercase:\", uppercase)\n",
+    "print(\"Lowercase:\", lowercase)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 136,
+   "id": "1dfec023-c3bb-4e2a-aba3-a33e7ca925fb",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter password:  mypass\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Uppercase: 0\n",
+      "Lowercase: 6\n"
+     ]
+    }
+   ],
+   "source": [
+    "password = input(\"Enter password: \")\n",
+    "\n",
+    "uppercase = 0\n",
+    "lowercase = 0\n",
+    "\n",
+    "for char in password:\n",
+    "    if char.isupper():\n",
+    "        uppercase = uppercase + 1\n",
+    "    elif char.islower():\n",
+    "        lowercase = lowercase + 1\n",
+    "\n",
+    "print(\"Uppercase:\", uppercase)\n",
+    "print(\"Lowercase:\", lowercase)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c092",
+   "metadata": {},
+   "source": [
+    "## 🛍️ 43. High-Value Items Total\n",
+    "\n",
+    "### Goal:\n",
+    "    A store manager wants the total of only the expensive items.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Create prices = [200, 550, 700, 100, 900].\n",
+    "    \n",
+    "    Loop through the prices.\n",
+    "    \n",
+    "    Add a price to the total only if it is above Rs 500.\n",
+    "    \n",
+    "    Print the total.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    High-value total = 2150"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 137,
+   "id": "c093",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "High-value total = 2150\n"
+     ]
+    }
+   ],
+   "source": [
+    "prices = [200, 550, 700, 100, 900]\n",
+    "total = 0\n",
+    "\n",
+    "for price in prices:\n",
+    "    if price > 500:\n",
+    "        total = total + price\n",
+    "\n",
+    "print(\"High-value total =\", total)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 138,
+   "id": "dc930d88-eda6-48e1-b5d0-a036c0256b73",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "High-value total = 2600\n"
+     ]
+    }
+   ],
+   "source": [
+    "prices = [300, 600, 1200, 450, 800]\n",
+    "total = 0\n",
+    "\n",
+    "for price in prices:\n",
+    "    if price > 500:\n",
+    "        total = total + price\n",
+    "\n",
+    "print(\"High-value total =\", total)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c094",
+   "metadata": {},
+   "source": [
+    "## 🏦 44. Savings Goal Planner\n",
+    "\n",
+    "### Goal:\n",
+    "    Find out how many months it takes to reach a savings goal.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for the goal amount and the monthly saving.\n",
+    "    \n",
+    "    Use a while loop: keep adding the monthly saving while the saved amount is below the goal.\n",
+    "    \n",
+    "    Count the months.\n",
+    "    \n",
+    "    Print the number of months.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Goal: 40000\n",
+    "    Monthly saving: 5000\n",
+    "    Months needed = 8"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 140,
+   "id": "c095",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter goal amount:  50000\n",
+      "Enter monthly saving:  10000\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Months needed = 5\n"
+     ]
+    }
+   ],
+   "source": [
+    "goal = int(input(\"Enter goal amount: \"))\n",
+    "monthly = int(input(\"Enter monthly saving: \"))\n",
+    "\n",
+    "saved = 0\n",
+    "months = 0\n",
+    "\n",
+    "while saved < goal:\n",
+    "    saved = saved + monthly\n",
+    "    months = months + 1\n",
+    "\n",
+    "print(\"Months needed =\", months)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 142,
+   "id": "5680f2a4-c95c-486c-9cbd-0417a9aef388",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter goal amount:  30000\n",
+      "Enter monthly saving:  40000\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Months needed = 1\n"
+     ]
+    }
+   ],
+   "source": [
+    "goal = int(input(\"Enter goal amount: \"))\n",
+    "monthly = int(input(\"Enter monthly saving: \"))\n",
+    "\n",
+    "saved = 0\n",
+    "months = 0\n",
+    "\n",
+    "while saved < goal:\n",
+    "    saved = saved + monthly\n",
+    "    months = months + 1\n",
+    "\n",
+    "print(\"Months needed =\", months)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c096",
+   "metadata": {},
+   "source": [
+    "## 💵 45. ATM Cash Notes Counter\n",
+    "\n",
+    "### Goal:\n",
+    "    An ATM splits a withdrawal into notes of 5000, 1000 and 500.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Create notes = [5000, 1000, 500] and ask for the amount (a multiple of 500).\n",
+    "    \n",
+    "    Loop through the notes.\n",
+    "    \n",
+    "    Number of notes = amount // note, then amount = amount % note.\n",
+    "    \n",
+    "    Print a line only if the number of notes is greater than 0.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Amount: 8500\n",
+    "    5000 x 1\n",
+    "    1000 x 3\n",
+    "    500 x 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 143,
+   "id": "c097",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter amount:  6500\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5000 x 1\n",
+      "1000 x 1\n",
+      "500 x 1\n"
+     ]
+    }
+   ],
+   "source": [
+    "notes = [5000, 1000, 500]\n",
+    "amount = int(input(\"Enter amount: \"))\n",
+    "\n",
+    "for note in notes:\n",
+    "    num = amount // note\n",
+    "    amount = amount % note\n",
+    "    if num > 0:\n",
+    "        print(f\"{note} x {num}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 144,
+   "id": "0ef4313e-19f2-4870-bfbd-8d263cc0b532",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter amount:  11500\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5000 x 2\n",
+      "1000 x 1\n",
+      "500 x 1\n"
+     ]
+    }
+   ],
+   "source": [
+    "notes = [5000, 1000, 500]\n",
+    "amount = int(input(\"Enter amount: \"))\n",
+    "\n",
+    "for note in notes:\n",
+    "    num = amount // note\n",
+    "    amount = amount % note\n",
+    "    if num > 0:\n",
+    "        print(f\"{note} x {num}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c098",
+   "metadata": {},
+   "source": [
+    "## 📦 46. Box Packing Helper\n",
+    "\n",
+    "### Goal:\n",
+    "    A warehouse wants every box size that packs items with nothing left over.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for the total number of items.\n",
+    "    \n",
+    "    Loop from 1 up to the number of items.\n",
+    "    \n",
+    "    If the items divide evenly by the box size, print that size.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Items: 24\n",
+    "    Box sizes: 1 2 3 4 6 8 12 24"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 145,
+   "id": "c099",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter total items:  18\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Box sizes: 1 2 3 6 9 18 "
+     ]
+    }
+   ],
+   "source": [
+    "items = int(input(\"Enter total items: \"))\n",
+    "\n",
+    "print(\"Box sizes:\", end=\" \")\n",
+    "for size in range(1, items + 1):\n",
+    "    if items % size == 0:\n",
+    "        print(size, end=\" \")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 146,
+   "id": "71f661cb-5f1b-449c-a473-e89b5d01a155",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter total items:  20\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Box sizes: 1 2 4 5 10 20 "
+     ]
+    }
+   ],
+   "source": [
+    "items = int(input(\"Enter total items: \"))\n",
+    "\n",
+    "print(\"Box sizes:\", end=\" \")\n",
+    "for size in range(1, items + 1):\n",
+    "    if items % size == 0:\n",
+    "        print(size, end=\" \")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c100",
+   "metadata": {},
+   "source": [
+    "## 🧱 47. Largest Square Tile\n",
+    "\n",
+    "### Goal:\n",
+    "    A floor is 48 ft by 18 ft. Find the biggest square tile that fits without cutting.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Ask for the length and the width.\n",
+    "    \n",
+    "    Use a while loop with Euclid's method: while b is not 0, set a, b = b, a % b.\n",
+    "    \n",
+    "    The answer is the final value of a (the GCD).\n",
+    "    \n",
+    "    Print the tile size.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Length: 48\n",
+    "    Width: 18\n",
+    "    Largest tile = 6 ft"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 147,
+   "id": "c101",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter length:  60\n",
+      "Enter width:  24\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Largest tile = 12 ft\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = int(input(\"Enter length: \"))\n",
+    "b = int(input(\"Enter width: \"))\n",
+    "\n",
+    "while b != 0:\n",
+    "    a, b = b, a % b\n",
+    "\n",
+    "print(f\"Largest tile = {a} ft\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 149,
+   "id": "782b7b26-c1ae-49c6-b160-5114d8aef5b2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter length:  36\n",
+      "Enter width:  15\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Largest tile = 3 ft\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = int(input(\"Enter length: \"))\n",
+    "b = int(input(\"Enter width: \"))\n",
+    "\n",
+    "while b != 0:\n",
+    "    a, b = b, a % b\n",
+    "\n",
+    "print(f\"Largest tile = {a} ft\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c102",
+   "metadata": {},
+   "source": [
+    "## 🌐 48. Unique Website Visitors\n",
+    "\n",
+    "### Goal:\n",
+    "    A website log records visitors, including repeats.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Create visitors = [\"Ali\", \"Sara\", \"Ali\", \"Ahmed\", \"Sara\"].\n",
+    "    \n",
+    "    Loop through the list.\n",
+    "    \n",
+    "    Add a name to a new list only if it is not already in it (do not use set()).\n",
+    "    \n",
+    "    Print the unique visitors and their count.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Unique: ['Ali', 'Sara', 'Ahmed']\n",
+    "    Count = 3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 153,
+   "id": "c103",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Unique: ['Ali', 'Sara', 'Ahmed']\n",
+      "Count = 3\n"
+     ]
+    }
+   ],
+   "source": [
+    "visitors = [\"Ali\", \"Sara\", \"Ali\", \"Ahmed\", \"Sara\"]\n",
+    "unique_visitors = []\n",
+    "\n",
+    "for name in visitors:\n",
+    "    if name not in unique_visitors:\n",
+    "        unique_visitors.append(name)\n",
+    "\n",
+    "print(f\"Unique: {unique_visitors}\")\n",
+    "print(f\"Count = {len(unique_visitors)}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 154,
+   "id": "70e2793e-06c6-4c9f-bd20-66417c081a2b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Unique: ['Ayesha', 'Bilal', 'Zain', 'Hina']\n",
+      "Count = 4\n"
+     ]
+    }
+   ],
+   "source": [
+    "visitors = [\"Ayesha\", \"Bilal\", \"Zain\", \"Hina\", \"Zain\"]\n",
+    "unique_visitors = []\n",
+    "\n",
+    "for name in visitors:\n",
+    "    if name not in unique_visitors:\n",
+    "        unique_visitors.append(name)\n",
+    "\n",
+    "print(f\"Unique: {unique_visitors}\")\n",
+    "print(f\"Count = {len(unique_visitors)}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c104",
+   "metadata": {},
+   "source": [
+    "## 🎫 49. Roll Number Order Check\n",
+    "\n",
+    "### Goal:\n",
+    "    A teacher checks whether roll numbers were entered in ascending order.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Create a list of roll numbers.\n",
+    "    \n",
+    "    Loop through the list and compare each number with the next one.\n",
+    "    \n",
+    "    Use a flag variable that becomes False if any number is out of order.\n",
+    "    \n",
+    "    Print \"Sorted\" or \"Not sorted\".\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    [101, 102, 105, 110] → Sorted\n",
+    "    [101, 105, 103] → Not sorted"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 155,
+   "id": "c105",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Sorted\n"
+     ]
+    }
+   ],
+   "source": [
+    "rolls = [101, 102, 105, 110]\n",
+    "is_sorted = True\n",
+    "\n",
+    "for i in range(len(rolls) - 1):\n",
+    "    if rolls[i] > rolls[i+1]:\n",
+    "        is_sorted = False\n",
+    "\n",
+    "if is_sorted:\n",
+    "    print(\"Sorted\")\n",
+    "else:\n",
+    "    print(\"Not sorted\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 156,
+   "id": "dfde7bd4-39a8-42c4-8d5c-929ee43dfe65",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Not sorted\n"
+     ]
+    }
+   ],
+   "source": [
+    "rolls = [10, 25, 12, 30]\n",
+    "is_sorted = True\n",
+    "\n",
+    "for i in range(len(rolls) - 1):\n",
+    "    if rolls[i] > rolls[i+1]:\n",
+    "        is_sorted = False\n",
+    "\n",
+    "if is_sorted:\n",
+    "    print(\"Sorted\")\n",
+    "else:\n",
+    "    print(\"Not sorted\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c106",
+   "metadata": {},
+   "source": [
+    "## 🌡️ 50. Weekly Temperature Report\n",
+    "\n",
+    "### Goal:\n",
+    "    A weather station wants to know how many days were warmer than average.\n",
+    "\n",
+    "### Steps:\n",
+    "\n",
+    "    Create temps = [30, 32, 28, 35, 31, 29, 36].\n",
+    "    \n",
+    "    First loop: add all the temperatures and calculate the average.\n",
+    "    \n",
+    "    Second loop: count the days above the average.\n",
+    "    \n",
+    "    Print the average (2 decimals) and the count.\n",
+    "\n",
+    "### Example:\n",
+    "\n",
+    "    Average = 31.57\n",
+    "    Days above average = 3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 157,
+   "id": "c107",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Average = 31.57\n",
+      "Days above average = 3\n"
+     ]
+    }
+   ],
+   "source": [
+    "temps = [30, 32, 28, 35, 31, 29, 36]\n",
+    "\n",
+    "total = 0\n",
+    "for t in temps:\n",
+    "    total = total + t\n",
+    "\n",
+    "avg = total / len(temps)\n",
+    "\n",
+    "count = 0\n",
+    "for t in temps:\n",
+    "    if t > avg:\n",
+    "        count = count + 1\n",
+    "\n",
+    "print(f\"Average = {avg:.2f}\")\n",
+    "print(f\"Days above average = {count}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 158,
+   "id": "9c4626a6-db0c-498e-b07c-bb1e9415a71b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Average = 26.00\n",
+      "Days above average = 3\n"
+     ]
+    }
+   ],
+   "source": [
+    "temps = [25, 27, 30, 22, 26, 28, 24]\n",
+    "\n",
+    "total = 0\n",
+    "for t in temps:\n",
+    "    total = total + t\n",
+    "\n",
+    "avg = total / len(temps)\n",
+    "\n",
+    "count = 0\n",
+    "for t in temps:\n",
+    "    if t > avg:\n",
+    "        count = count + 1\n",
+    "\n",
+    "print(f\"Average = {avg:.2f}\")\n",
+    "print(f\"Days above average = {count}\")"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
